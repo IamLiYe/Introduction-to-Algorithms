@@ -22,6 +22,8 @@ public class Test1434 {
 			}
 		}
 	}
+	
+	//基数排序
 	public static final int BUCKET_HEIGHT=10;
 	public static void radixSort(int[] array,int size) {
 		int[][] buckets=new int[BUCKET_HEIGHT][size+1];//第一个统计数量
@@ -31,8 +33,6 @@ public class Test1434 {
 			buckets[h][w]=array[i];
 		}
 		readRdixArray(buckets, array, size);
-		for(int i=0;i<BUCKET_HEIGHT;i++)
-			buckets[i][0]=0;
 	}
 	
 	public static void readRdixArray(int[][] buckets,int[]array,int size) {
@@ -43,6 +43,7 @@ public class Test1434 {
 			while(width-->0) {
 				array[count++]=buckets[i][w++];
 			}
+			buckets[i][0]=0;
 		}
 	}
 	
@@ -54,6 +55,35 @@ public class Test1434 {
 		return numBits;
 	}
 	
+    public static final long[] DIVS_LONG={
+    		1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000
+    		,10000000000L
+    		,100000000000L
+    		,1000000000000L
+    		,10000000000000L
+    		,100000000000000L
+    		,1000000000000000L
+    		,10000000000000000L
+    		,100000000000000000L
+    		,1000000000000000000L};
+    
+    /**
+     * 获取数字的某一位值
+     * @param num 数字
+     * @param bit 第几位
+     * @return
+     */
+    public static int getNumBitValue(long num,int bit){
+    	return (int)(num/DIVS_LONG[bit]%10);
+    }
+    
+    public static final int[] DIVS_INT={
+    		1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000};
+    
+    public static int getNumBitValue(int num,int bit){
+    	return (num/DIVS_INT[bit]%10);
+    }
+    
 	public static int getMaxNum(int[] array,int size) {
 		int max=array[0];
 		for(int i=1;i<size;i++) {
