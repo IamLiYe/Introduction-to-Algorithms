@@ -23,7 +23,6 @@ public class Test1434 {
 		}
 	}
 	public static final int BUCKET_HEIGHT=10;
-	
 	public static void radixSort(int[] array,int size) {
 		int[][] buckets=new int[BUCKET_HEIGHT][size+1];//第一个统计数量
 		for(int i=0;i<size;i++) {
@@ -31,9 +30,9 @@ public class Test1434 {
 			int w=++buckets[h][0];
 			buckets[h][w]=array[i];
 		}
+		readRdixArray(buckets, array, size);
 		for(int i=0;i<BUCKET_HEIGHT;i++)
 			buckets[i][0]=0;
-		readRdixArray(buckets, array, size);
 	}
 	
 	public static void readRdixArray(int[][] buckets,int[]array,int size) {
