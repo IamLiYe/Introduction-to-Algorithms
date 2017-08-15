@@ -28,7 +28,7 @@ public class test1107 {
 			return end-start==0?array[start]:array[start]+array[end];
 		}
 		for(int i=start+1;i<=end;i++) {
-			if(array[start]>array[i+1]) {
+			if(array[start]>array[i]) {
 				int temp=array[start];
 				array[start]=array[i];
 				array[i]=temp;
