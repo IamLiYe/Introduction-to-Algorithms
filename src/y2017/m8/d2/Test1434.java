@@ -1,19 +1,9 @@
 package y2017.m8.d2;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
-class Node{
-	int beagin;
-	int end;
-	public static int compareTo(final Node a,final Node b) {
-		if(a.beagin==b.beagin) {
-			return b.end-a.end;
-		}
-		else {
-			return b.beagin-a.beagin;
-		}
-	}
-}
 public class Test1434 {
 	static int[] Ti_S=new int[100];
 	static int[] Ti_E=new int[100];
@@ -33,6 +23,10 @@ public class Test1434 {
 				Ti_E[i]=in.nextInt();
 			}
 		}
+		Arrays.sort(array);
+		for(int a:array) {
+			System.out.println(a+"+");
+		};
 		in.close();
 	}
 	
