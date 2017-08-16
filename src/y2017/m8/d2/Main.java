@@ -1,5 +1,6 @@
 package y2017.m8.d2;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -16,12 +17,16 @@ class NodeSort implements Comparator<Node>{
 		if(o1.begin==o2.begin)
 			return o1.end-o2.end;
 		else 
-			return o2.begin-o1.begin;
+			return o1.begin-o2.begin;
 	}
 }
 
 public class Main {
 	public static Node[] acArray=new Node[100];
+	static {
+		for(int i=0;i<100;i++)
+			acArray[i]=new Node();
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -32,7 +37,15 @@ public class Main {
 				acArray[i].begin=in.nextInt();
 				acArray[i].end=in.nextInt();
 			}
+			Arrays.sort(acArray,0,m,new NodeSort());
+			int count=0;
+			int end=acArray[0].end;
+			for(int i=1;end<24&&i<m;i++) {
+				
+			}
+			System.out.println(acArray);
 		}
+		in.close();
 	}
-
+	
 }
